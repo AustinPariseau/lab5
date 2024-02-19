@@ -1,0 +1,26 @@
+<html>
+<body>
+    <h1>Feedback Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <p>
+        {% if my_message %}
+        Your message: {{ my_message }}
+        {% endif %}
+    </p>
+
+    {% if service_evaluated %}
+    Thank you for evaluating our service.
+    {% else %}
+    Service was not evaluated.
+    {% endif %}
+
+    <p>
+        <a href="{% url 'thanks' %}">Thanks Page</a>
+    </p>
+</body>
+</html>
